@@ -18,7 +18,15 @@ debug = DebugToolbarExtension(app)
 def home():
     return render_template ('home.html')
 
+@app.route('/tables')
+def currency_code_table():
+    """Renders an HTML page to locate currency codes"""
+    return render_template('tables.html')
 
+@app.route('/convert')
+def currency_convert():
+    """Renders the webpage that converts the currency to the latest Bitcoin value"""
+    return render_template('convert.html')
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
