@@ -2,34 +2,46 @@
 {% block title %}Home Page{% endblock title %}
 {% block content %}
 
-<div class="flex justify-center items-center h-screen bg-gray-100">
-    <h1 class="text-4xl font-bold text-blue-500">Forex Bitcoin Converter</h1>
-</div>
-<div class="flex justify-center items-center h-screen bg-gray-100">
-    <h2 class="text-2.5xl font-bold text-blue-500">
-        Instructions:
-    </h2>
-        <h3 class="text-xl font-bold text-blue-500">
+
+<div class="flex flex-col items-center h-screen bg-gray-400">
+    <h1 class="text-4xl font-bold text-black pt-8">Forex Bitcoin Converter</h1>
+    <div class="mt-4 text-center">
+        <h2 class="text-3xl font-bold text-black">
+            Instructions:
+        </h2>
+        <h3 class="text-xl font-bold text-black">
             Enter the currency code below into the input and submit to see the current Bitcoin price
-        </h3>    
-<div>
-<div>
-   <form action="/" method="post">
-        <label for="user_curr">
-            <input 
-            id="user_curr"
-            type="text" 
-            name="currency" 
-            placeholder="USD"
-            >Currency:
-        </label><br>
-        <button
-            class="button"
-            type="submit"
-            >Submit!
-        </button>
-   </form>
+        </h3>
+        <div class="mt-8">
+            <form action="/" method="post">
+                <label for="user_curr" class="block text-lg font-bold">
+                    <input 
+                        id="user_curr"
+                        type="text" 
+                        name="currency" 
+                        placeholder="USD"
+                        class="p-2 border border-gray-300 rounded"
+                    >
+                    Currency:
+                </label>
+                <br>
+                <button
+                    class="mt-8 bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 ease-in-out hover:bg-red-500 cursor-pointer"
+                    type="submit"
+                >
+                    Submit!
+                </button>
+            </form>
+            <div class="mt-8">
+                <img src="/static/images/bitcoin_300px.jpg" alt="Several bitcoins on a red cloth" class="mx-auto">
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 
 
 {% endblock content %}
