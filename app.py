@@ -14,7 +14,7 @@ app.config.from_object(DevelopmentConfig)
 
 debug = DebugToolbarExtension(app)
 
-app.route('/') # Home Page
+@app.route('/') # Home Page
 def home():
     return render_template ('home.html')
 
