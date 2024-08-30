@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, request, session, make_response, flash
-from flask_debugtoolbar import DebugToolbarExtension
-from config import logger, DevelopmentConfig # or ProductionConfig, TestingConfig
+from flask import Flask, render_template, request
+# from flask_debugtoolbar import DebugToolbarExtension
+from config import logger, ProductionConfig # or ProductionConfig, TestingConfig
 from dotenv import load_dotenv, find_dotenv
 from forex import forex_BTC
 import os
@@ -13,9 +13,9 @@ load_dotenv(find_dotenv())
 app = Flask(__name__)
 
 # Call config files
-app.config.from_object(DevelopmentConfig)
-app.config['DEBUG'] = 'DEBUG_TB_INTERCEPT_REDIRECTS = True'
-debug = DebugToolbarExtension(app)
+app.config.from_object(ProductionConfig)
+# app.config['DEBUG'] = 'DEBUG_TB_INTERCEPT_REDIRECTS = True'
+# debug = DebugToolbarExtension(app)
 
 @app.route('/') # Home Page
 def home():
@@ -32,7 +32,7 @@ def currency_convert_post():
     if request.method == 'POST':
         # Retrieve the value of the desired currency
         currency = request.form.get('currency')
-        logger.debug(f'Form data received for the desired currency: {currency}')
+        # logger.debug(f'Form data received for the desired currency: {currency}')
         
         # Perform calculation from script
         result = forex_BTC(currency)
@@ -42,4 +42,4 @@ def currency_convert_post():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=False, use_reloader=False)

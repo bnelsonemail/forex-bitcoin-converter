@@ -3,11 +3,15 @@
 
 {% block content %}
 
-<h1> I am the conversion page</h1>
+
 
 <div class="mt-8">
     <img src="/static/images/bitcoin_circuit_640.jpg" alt="Bitcoin on a circuit board" class="mx-auto">
 </div>
 
+{% if result %}
+<h2 class="text-3xl font-bold text-black">Conversion Result:</h2>
+<h3 class="text-2xl font-bold text-black">{{ result }}</h3>
+{% endif %}
 
 {% endblock content %}
