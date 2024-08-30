@@ -4,6 +4,7 @@ from config import logger, DevelopmentConfig # or ProductionConfig, TestingConfi
 from dotenv import load_dotenv, find_dotenv
 import os
 
+
 # load environment variables from the .env file
 load_dotenv(find_dotenv())
 
